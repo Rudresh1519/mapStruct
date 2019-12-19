@@ -1,0 +1,79 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!-- Created with Jaspersoft Studio version 6.10.0.final using JasperReports Library version 6.10.0-unknown  -->
+<jasperReport xmlns="http://jasperreports.sourceforge.net/jasperreports" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="http://jasperreports.sourceforge.net/jasperreports http://jasperreports.sourceforge.net/xsd/jasperreport.xsd" name="barGraph" pageWidth="595" pageHeight="842" columnWidth="555" leftMargin="20" rightMargin="20" topMargin="20" bottomMargin="20" uuid="4b5500cf-fbc0-4375-a3f1-f38b8e02a177">
+	<property name="com.jaspersoft.studio.data.sql.tables" value=""/>
+	<property name="com.jaspersoft.studio.data.defaultdataadapter" value="New Data Adapter "/>
+	<queryString language="SQL">
+		<![CDATA[SELECT * FROM bookingdetails]]>
+	</queryString>
+	<field name="month" class="java.lang.String">
+		<property name="com.jaspersoft.studio.field.label" value="month"/>
+		<property name="com.jaspersoft.studio.field.tree.path" value="bookingdetails"/>
+	</field>
+	<field name="numberOfBookings" class="java.lang.Integer">
+		<property name="com.jaspersoft.studio.field.label" value="numberOfBookings"/>
+		<property name="com.jaspersoft.studio.field.tree.path" value="bookingdetails"/>
+	</field>
+	<group name="month">
+		<groupExpression><![CDATA[$F{month}]]></groupExpression>
+	</group>
+	<group name="numberOfBookings">
+		<groupExpression><![CDATA[$F{numberOfBookings}]]></groupExpression>
+	</group>
+	<background>
+		<band splitType="Stretch"/>
+	</background>
+	<pageHeader>
+		<band height="55" splitType="Stretch">
+			<staticText>
+				<reportElement x="0" y="0" width="550" height="55" uuid="8ea0a58b-27c6-4cac-9c80-e4c6f5ff11b4"/>
+				<textElement textAlignment="Center" verticalAlignment="Bottom">
+					<font size="16"/>
+				</textElement>
+				<text><![CDATA[Number Of Bookings]]></text>
+			</staticText>
+		</band>
+	</pageHeader>
+	<pageFooter>
+		<band height="42" splitType="Stretch">
+			<staticText>
+				<reportElement x="0" y="0" width="550" height="30" uuid="c3ad487b-3c9c-49cc-8d29-e592d040121a"/>
+				<textElement textAlignment="Left" verticalAlignment="Bottom">
+					<font size="11" isBold="false"/>
+				</textElement>
+				<text><![CDATA[ Copyright  ITOrizon 2018-19]]></text>
+			</staticText>
+		</band>
+	</pageFooter>
+	<summary>
+		<band height="586">
+			<barChart>
+				<chart evaluationTime="Report">
+					<reportElement key="0" x="2" y="0" width="550" height="391" forecolor="#FF33FF" uuid="7563ce34-9ec1-4adb-abc8-1f9582147a89"/>
+					<chartTitle color="#4133FF"/>
+					<chartSubtitle/>
+					<chartLegend/>
+				</chart>
+				<categoryDataset>
+					<categorySeries>
+						<seriesExpression><![CDATA["CarBookingDetails"]]></seriesExpression>
+						<categoryExpression><![CDATA[$F{month}]]></categoryExpression>
+						<valueExpression><![CDATA[$F{numberOfBookings}]]></valueExpression>
+					</categorySeries>
+				</categoryDataset>
+				<barPlot>
+					<plot>
+						<seriesColor seriesOrder="0" color="#EFD02B"/>
+					</plot>
+					<itemLabel color="#3633FF" backgroundColor="#FFFFFF"/>
+					<categoryAxisFormat>
+						<axisFormat labelColor="#FF0000" tickLabelColor="#FF33FF" verticalTickLabels="false" axisLineColor="#FF33FF"/>
+					</categoryAxisFormat>
+					<valueAxisFormat>
+						<axisFormat labelColor="#FF0033" tickLabelColor="#FF33FF" verticalTickLabels="false" axisLineColor="#FF33FF"/>
+					</valueAxisFormat>
+				</barPlot>
+			</barChart>
+		</band>
+	</summary>
+</jasperReport>

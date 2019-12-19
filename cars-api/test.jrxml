@@ -1,0 +1,37 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!-- Created with Jaspersoft Studio version 6.10.0.final using JasperReports Library version 6.10.0-unknown  -->
+<jasperReport xmlns="http://jasperreports.sourceforge.net/jasperreports" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="http://jasperreports.sourceforge.net/jasperreports http://jasperreports.sourceforge.net/xsd/jasperreport.xsd" name="test" pageWidth="595" pageHeight="842" columnWidth="555" leftMargin="20" rightMargin="20" topMargin="20" bottomMargin="20" uuid="6e5937e3-bfb3-4b98-93e2-ebb3ef4c81d3">
+	<property name="com.jaspersoft.studio.data.sql.tables" value=""/>
+	<property name="com.jaspersoft.studio.data.defaultdataadapter" value="New Data Adapter "/>
+	<queryString language="SQL">
+		<![CDATA[SELECT vehical_id
+FROM vehicals
+where price = (SELECT  MIN(price)
+               FROM vehicals)]]>
+	</queryString>
+	<field name="vehical_id" class="java.lang.Integer">
+		<property name="com.jaspersoft.studio.field.label" value="vehical_id"/>
+		<property name="com.jaspersoft.studio.field.tree.path" value="vehicals"/>
+	</field>
+	<group name="vehical_id">
+		<groupExpression><![CDATA[$F{vehical_id}]]></groupExpression>
+	</group>
+	<background>
+		<band splitType="Stretch"/>
+	</background>
+	<summary>
+		<band height="42" splitType="Stretch">
+			<property name="com.jaspersoft.studio.unit.height" value="px"/>
+			<textField>
+				<reportElement x="-20" y="0" width="68" height="30" uuid="0f49695c-b0d5-418b-97ae-683272605eec">
+					<property name="com.jaspersoft.studio.spreadsheet.connectionID" value="c48c9e7e-4d28-465c-b0ae-7437cf273e16"/>
+					<property name="com.jaspersoft.studio.unit.width" value="px"/>
+				</reportElement>
+				<textElement textAlignment="Left" verticalAlignment="Middle">
+					<font size="16"/>
+				</textElement>
+				<textFieldExpression><![CDATA[$F{vehical_id}]]></textFieldExpression>
+			</textField>
+		</band>
+	</summary>
+</jasperReport>
